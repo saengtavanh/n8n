@@ -8,28 +8,24 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <h2>กำลังบันทึกข้อมูลของคุณ...</h2>
 
-  <script>
-    // LIFF SDK is already loaded via the external script tag in <head>; use the global `liff` object.
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwQG3dVXUyEHfeiM-l0GT78BRfHIjY3rw-sFN-NxUMkjOO-7TfB7Ny90ni9EG6hZwiY/exec'; // เปลี่ยนตรงนี้
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+  window.onload = async function() {
+    const scriptUrl = 'https://script.google.com/macros/s/.../exec';
 
     async function sendProfileToSheet(profile) {
       const res = await fetch(scriptUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile)
       });
-
-      if (res.ok) {
-        document.body.innerHTML = '<h2>บันทึกเรียบร้อยแล้ว ขอบคุณครับ</h2>';
-      } else {
-        document.body.innerHTML = '<h2>เกิดข้อผิดพลาด</h2>';
-      }
+      document.body.innerHTML = res.ok
+        ? '<h2>บันทึกเรียบร้อยแล้ว ขอบคุณครับ</h2>'
+        : '<h2>เกิดข้อผิดพลาด</h2>';
     }
 
     async function main() {
-      await liff.init({ liffId: "2008339553-oxzP9V3v" }); // ใส่ LIFF ID ของคุณ
+      await liff.init({ liffId: "2008339553-oxzP9V3v" });
 
       if (!liff.isLoggedIn()) {
         liff.login();
@@ -44,7 +40,10 @@
     }
 
     main();
-  </script>
+  };
+</script>
+
 </body>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </html>
+
