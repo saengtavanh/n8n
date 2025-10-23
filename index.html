@@ -5,9 +5,11 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
-  <h2>กำลังบันทึกข้อมูลของคุณ...</h2>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <h2>กำลังบันทึกข้อมูลของคุณ...</h2>
+
   <script>
+    // LIFF SDK is already loaded via the external script tag in <head>; use the global `liff` object.
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbwQG3dVXUyEHfeiM-l0GT78BRfHIjY3rw-sFN-NxUMkjOO-7TfB7Ny90ni9EG6hZwiY/exec'; // เปลี่ยนตรงนี้
 
     async function sendProfileToSheet(profile) {
@@ -44,5 +46,5 @@
     main();
   </script>
 </body>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </html>
-
